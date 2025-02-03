@@ -15,7 +15,7 @@ class GreetControllerTest {
     private WebTestClient webClient;
 
     @Test
-    void givenRequestWithNameParam_whenGet_thenOkWithOperationType() {
+    void givenRequestWithNameParam_whenGet_thenOkWithGreeting() {
         webClient.get()
                 .uri("/api/hello?name=John")
                 .accept(APPLICATION_JSON)
