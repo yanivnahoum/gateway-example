@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: hello_route
+        uri: forward:/greet
+        predicates:
+        - Path=/api/hello
+        - Method=GET
+        filters:
+        - AddRequestHeader=X-Request-Operation-Type, HELLO
