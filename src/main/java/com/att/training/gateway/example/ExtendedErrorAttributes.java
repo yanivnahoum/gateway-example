@@ -12,7 +12,8 @@ public class ExtendedErrorAttributes extends DefaultErrorAttributes {
     @Override
     public Map<String, Object> getErrorAttributes(ServerRequest request, ErrorAttributeOptions options) {
         Map<String, Object> errorAttributes = super.getErrorAttributes(request, options);
-        errorAttributes.put("operationType", request.headers().firstHeader(CustomHeaders.OPERATION_TYPE));
+        String operationType = request.exchange().getAttribute(OperationTypeGatewayFilterFactory.OPERATION_TYPE_ATTR);
+        errorAttributes.put("operationType", operationType);
         return errorAttributes;
     }
 }
