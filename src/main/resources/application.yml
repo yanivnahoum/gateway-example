@@ -8,4 +8,4 @@ spring:
         - Path=/api/hello
         - Method=GET
         filters:
-        - AddRequestHeader=X-Request-Operation-Type, HELLO
+        - OperationType=HELLO
