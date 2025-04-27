@@ -26,7 +26,7 @@ public class GlobalErrorWebExceptionHandler extends DefaultErrorWebExceptionHand
 
     @Override
     protected void logError(ServerRequest request, ServerResponse response, Throwable throwable) {
-        String operationType = request.headers().firstHeader(CustomHeaders.OPERATION_TYPE);
+        String operationType = request.exchange().getAttribute(OperationTypeGatewayFilterFactory.OPERATION_TYPE_ATTR);
         log.error("An error occurred in {}. Operation type: {}", request.path(), operationType, throwable);
     }
 }
